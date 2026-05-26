@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'quote.dart';
-import 'QuoteCard.dart';
+import 'quote_card.dart';
 
 void main () => runApp(MaterialApp(
   home: quoteList(),
@@ -21,9 +21,9 @@ class _quoteListState extends State<quoteList> {
     Quote(author:"Oscar Wild", text:"Be yourself, everyone else is already taken",
     category: "Inspirational", createdAt: DateTime(1967, 1, 1)),
     Quote(author:"Oscar Wild", text:"I have nothing to declare except my genius",
-    category: "biographical", createdAt: DateTime(1910, 1, 3)),
+    category: "biographical", createdAt: DateTime(1910, 2, 3)),
     Quote(author:"Oscar Wild", text:"The truth is rarely pure and never simple",
-    category: "reflective", createdAt: DateTime(1896, 1, 1)),
+    category: "reflective", createdAt: DateTime(1896, 1, 30)),
   ];
 
   @override
@@ -36,7 +36,14 @@ class _quoteListState extends State<quoteList> {
         backgroundColor: Colors.redAccent,
       ),
       body: Column(
-        children: quotes.map((quote) => QuoteCard(quote:quote)).toList(),
+        children: quotes.map((quote) => QuoteCard(
+          quote: quote,
+          delete: () {
+            setState(() {
+              quotes.remove(quote);
+            });
+          }
+        )).toList(),
       )
     );
   }
