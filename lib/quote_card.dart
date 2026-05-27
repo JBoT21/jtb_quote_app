@@ -5,7 +5,22 @@ import 'quote.dart';
 class QuoteCard extends StatelessWidget {
   final Quote quote;
   final VoidCallback delete;
-  QuoteCard({required this.quote, required this.delete});
+
+
+  QuoteCard({required this.quote, required this.delete,});
+
+  Color getColorFromCat (){
+    switch (quote.category.toLowerCase()){
+      case "reflective":
+        return Colors.deepOrangeAccent;
+      case "biographical":
+        return Colors.green;
+      case "inspirational":
+        return Colors.lightBlue;
+      default:
+        return Colors.grey;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +28,7 @@ class QuoteCard extends StatelessWidget {
 
     return Card(
       margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
+      color: getColorFromCat(),
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
