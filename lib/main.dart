@@ -42,7 +42,12 @@ class _quoteListState extends State<quoteList> {
             setState(() {
               quotes.remove(quote);
             });
-          }
+          },
+          like: (){
+            setState(() {
+              quote.likes++;
+            });
+        }
         )).toList(),
       )
     );

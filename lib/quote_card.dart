@@ -5,9 +5,10 @@ import 'quote.dart';
 class QuoteCard extends StatelessWidget {
   final Quote quote;
   final VoidCallback delete;
+  final VoidCallback like;
 
 
-  QuoteCard({required this.quote, required this.delete,});
+  QuoteCard({required this.quote, required this.delete, required this.like});
 
   Color getColorFromCat() {
     switch (quote.category.toLowerCase()) {
@@ -66,7 +67,10 @@ class QuoteCard extends StatelessWidget {
               onPressed: delete,
               label: Text("Delete quote"),
               icon: Icon(Icons.delete),
-            )
+            ),
+            IconButton(onPressed: like, icon: Icon(Icons.thumb_up_sharp)
+            ),
+            Text('Number of likes: ${quote.likes}'),
           ],
         ),
       ),
