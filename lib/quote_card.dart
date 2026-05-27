@@ -9,13 +9,13 @@ class QuoteCard extends StatelessWidget {
 
   QuoteCard({required this.quote, required this.delete,});
 
-  Color getColorFromCat (){
-    switch (quote.category.toLowerCase()){
-      case "reflective":
+  Color getColorFromCat() {
+    switch (quote.category.toLowerCase()) {
+      case 'reflective':
         return Colors.deepOrangeAccent;
-      case "biographical":
+      case 'biographical':
         return Colors.green;
-      case "inspirational":
+      case 'inspirational':
         return Colors.lightBlue;
       default:
         return Colors.grey;
